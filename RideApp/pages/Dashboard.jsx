@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 import MapView, { Marker, AnimatedRegion } from "react-native-maps";
 import mapColor from "../utilities/mapColor";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -65,7 +65,7 @@ export default function Dashboard() {
           >
             <View>
               <Text style={styles.bottomSheetTopic}>Select a car</Text>
-              <View style={styles.bottomNavBar}>
+              <ScrollView horizontal={true} style={styles.bottomNavBar}>
                 {/* --------------------------------------- */}
                 <View style={styles.bottomScrollbarField}>
                   <Text style={styles.fieldText}>Automatic</Text>
@@ -75,7 +75,15 @@ export default function Dashboard() {
                   <Text style={styles.fieldText}>Electric</Text>
                 </View>
                 {/* --------------------------------------- */}
-              </View>
+                <View style={styles.bottomScrollbarField}>
+                  <Text style={styles.fieldText}>Manual</Text>
+                </View>
+                {/* --------------------------------------- */}
+                <View style={styles.bottomScrollbarField}>
+                  <Text style={styles.fieldText}>Electric</Text>
+                </View>
+                {/* --------------------------------------- */}
+              </ScrollView>
             </View>
           </BottomSheetModal>
         </View>
@@ -114,12 +122,16 @@ const styles = StyleSheet.create({
   },
   bottomScrollbarField: {
     backgroundColor: "#121a2d",
-    width: 130,
+    width: "auto",
     height: 50,
     borderRadius: 50,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    paddingRight: 30,
+    paddingLeft: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   fieldText: {
     color: "#ffffff",
