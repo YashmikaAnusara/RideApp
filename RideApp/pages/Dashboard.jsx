@@ -65,6 +65,9 @@ export default function Dashboard() {
           >
             <View>
               <Text style={styles.bottomSheetTopic}>Select a car</Text>
+              <View style={styles.bottomNavBar}>
+                <Text>dfdf</Text>
+              </View>
             </View>
           </BottomSheetModal>
         </View>
@@ -91,5 +94,13 @@ const styles = StyleSheet.create({
     left: 10,
     fontWeight: "bold",
     fontSize: 20,
+  },
+  bottomNavBar: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "red",
+    width: "100%",
+    top: 10,
+    left: 10,
   },
 });
