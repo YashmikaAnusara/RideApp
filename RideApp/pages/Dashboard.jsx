@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, AnimatedRegion } from "react-native-maps";
 import mapColor from "../utilities/mapColor";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import {
@@ -48,7 +48,10 @@ export default function Dashboard() {
             initialRegion={position}
             customMapStyle={mapColor}
             showsTraffic={true}
-            showsUserLocation={true}
+            // showsUserLocation={true}
+            // followsUserLocation={true}
+            zoomEnabled={true}
+            // showsMyLocationButton={true}
           >
             <Marker title="Yor are here" coordinate={position} />
           </MapView>
