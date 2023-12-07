@@ -66,7 +66,9 @@ export default function Dashboard() {
             <View>
               <Text style={styles.bottomSheetTopic}>Select a car</Text>
               <View style={styles.bottomNavBar}>
-                <Text>dfdf</Text>
+                <View style={styles.bottomScrollbarField}>
+                  <Text style={styles.fieldText}>Automatic</Text>
+                </View>
               </View>
             </View>
           </BottomSheetModal>
@@ -98,9 +100,22 @@ const styles = StyleSheet.create({
   bottomNavBar: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "red",
+    // backgroundColor: "red",
     width: "100%",
     top: 10,
     left: 10,
+  },
+  bottomScrollbarField: {
+    backgroundColor: "green",
+    width: 130,
+    height: 50,
+    borderRadius: 50,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  fieldText: {
+    color: "#ffffff",
+    fontWeight: "bold",
   },
 });
