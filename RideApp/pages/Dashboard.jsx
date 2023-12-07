@@ -48,10 +48,7 @@ export default function Dashboard() {
             initialRegion={position}
             customMapStyle={mapColor}
             showsTraffic={true}
-            // showsUserLocation={true}
-            // followsUserLocation={true}
             zoomEnabled={true}
-            // showsMyLocationButton={true}
           >
             <Marker title="Yor are here" coordinate={position} />
           </MapView>
