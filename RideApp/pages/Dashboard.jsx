@@ -19,7 +19,6 @@ export default function Dashboard() {
     <GestureHandlerRootView>
       <BottomSheetModalProvider>
         <View style={styles.bodyContainer}>
-          <TopBar />
           <MapView
             style={styles.MapView}
             initialRegion={{
@@ -30,6 +29,9 @@ export default function Dashboard() {
             }}
             customMapStyle={mapColor}
           />
+          <View style={styles.topBar}>
+            <TopBar />
+          </View>
           <Button title="Hi popup" onPress={popupHandler} />
           <BottomSheetModal
             ref={bottomSheetModalRef}
@@ -54,5 +56,10 @@ const styles = StyleSheet.create({
   MapView: {
     width: "100%",
     height: "50%",
+  },
+  topBar: {
+    display: "flex",
+    position: "absolute",
+    top: 50,
   },
 });
