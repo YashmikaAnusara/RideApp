@@ -61,14 +61,20 @@ export default function Dashboard() {
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={0}
-            snapPoints={["50%", "90%"]}
+            snapPoints={["55%", "90%"]}
           >
             <View>
               <Text style={styles.bottomSheetTopic}>Select a car</Text>
               <View style={styles.bottomNavBar}>
+                {/* --------------------------------------- */}
                 <View style={styles.bottomScrollbarField}>
                   <Text style={styles.fieldText}>Automatic</Text>
                 </View>
+                {/* --------------------------------------- */}
+                <View style={styles.bottomScrollbarField}>
+                  <Text style={styles.fieldText}>Electric</Text>
+                </View>
+                {/* --------------------------------------- */}
               </View>
             </View>
           </BottomSheetModal>
@@ -99,14 +105,15 @@ const styles = StyleSheet.create({
   },
   bottomNavBar: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     // backgroundColor: "red",
     width: "100%",
-    top: 10,
+    top: 20,
     left: 10,
+    gap: 10,
   },
   bottomScrollbarField: {
-    backgroundColor: "green",
+    backgroundColor: "#121a2d",
     width: 130,
     height: 50,
     borderRadius: 50,
@@ -116,6 +123,6 @@ const styles = StyleSheet.create({
   },
   fieldText: {
     color: "#ffffff",
-    fontWeight: "bold",
+    // fontWeight: "bold",
   },
 });
