@@ -4,8 +4,12 @@ import React from "react";
 export default function TopBar() {
   return (
     <View style={styles.topBraContainer}>
-      <Text>TopBar</Text>
-      <Text>TopBar</Text>
+      <View style={styles.topBraCard}>
+        <Text>Test</Text>
+      </View>
+      <View style={styles.topBraCard}>
+        <Text>TopBar</Text>
+      </View>
     </View>
   );
 }
@@ -15,7 +19,19 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "76.5%",
-    backgroundColor: "red",
+    width: "76%",
+    height: 60,
+    // backgroundColor: "red",
+    left: 10,
+    right: 10,
+  },
+  topBraCard: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: 55,
+    width: 55,
+    backgroundColor: "#ffffff",
+    borderRadius: 100,
   },
 });

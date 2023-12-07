@@ -60,6 +60,6 @@ const styles = StyleSheet.create({
   topBar: {
     display: "flex",
     position: "absolute",
-    top: 50,
+    top: 40,
   },
 });
