@@ -7,7 +7,6 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
-// import Geolocation from "@react-native-community/geolocation";
 import TopBar from "../component/topBar";
 import * as Location from "expo-location";
 
