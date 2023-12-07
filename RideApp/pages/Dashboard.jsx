@@ -13,8 +13,8 @@ import * as Location from "expo-location";
 export default function Dashboard() {
   const bottomSheetModalRef = useRef(null);
   const [position, setPosition] = useState({
-    latitude: 10.0474869,
-    longitude: 79.91138573,
+    latitude: 8.7591803,
+    longitude: 80.5193594,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
@@ -49,23 +49,24 @@ export default function Dashboard() {
             showsTraffic={true}
             zoomEnabled={true}
           >
-            <Marker title="Yor are here" coordinate={position} />
+            <Marker
+              coordinate={position}
+              image={require("../assets/carMarker.png")}
+              onPress={popupHandler}
+            />
           </MapView>
           <View style={styles.topBar}>
             <TopBar />
           </View>
-          <Button title="Hi popup" onPress={popupHandler} />
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={0}
             snapPoints={["50%", "90%"]}
           >
             <View>
-              <Text>Hi Popup Box</Text>
+              <Text style={styles.bottomSheetTopic}>Select a car</Text>
             </View>
           </BottomSheetModal>
-          <Text>{position.latitude}</Text>
-          <Text>{position.longitude}</Text>
         </View>
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
@@ -85,5 +86,10 @@ const styles = StyleSheet.create({
     display: "flex",
     position: "absolute",
     top: 40,
+  },
+  bottomSheetTopic: {
+    left: 10,
+    fontWeight: "bold",
+    fontSize: 20,
   },
 });
