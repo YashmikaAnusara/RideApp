@@ -7,10 +7,10 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
+import TopBar from "../component/topBar";
 
 export default function Dashboard() {
   const bottomSheetModalRef = useRef(null);
-  const snapPoints = ["50%", "90%"];
 
   const popupHandler = () => {
     bottomSheetModalRef.current.present();
@@ -19,6 +19,7 @@ export default function Dashboard() {
     <GestureHandlerRootView>
       <BottomSheetModalProvider>
         <View style={styles.bodyContainer}>
+          <TopBar />
           <MapView
             style={styles.MapView}
             initialRegion={{
@@ -33,7 +34,7 @@ export default function Dashboard() {
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={0}
-            snapPoints={snapPoints}
+            snapPoints={["50%", "90%"]}
           >
             <View>
               <Text>Hi Popup Box</Text>
