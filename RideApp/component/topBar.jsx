@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
 export default function TopBar() {
@@ -7,9 +7,17 @@ export default function TopBar() {
       <View style={styles.topBraCard}>
         <Text>Test</Text>
       </View>
-      <View style={styles.topBraCard}>
-        <Text>TopBar</Text>
-      </View>
+      <TouchableOpacity style={styles.topBraCard}>
+        <Image
+          source={require("../assets/gps.png")}
+          resizeMode="contain"
+          style={{
+            width: 30,
+            height: 30,
+            tintColor: "#222222",
+          }}
+        />
+      </TouchableOpacity>
     </View>
   );
 }
