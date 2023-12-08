@@ -23,10 +23,6 @@ export default function Dashboard() {
     longitudeDelta: 0.0421,
   });
 
-  const popupHandler = () => {
-    bottomSheetModalRef.current.present();
-  };
-
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -55,7 +51,6 @@ export default function Dashboard() {
           <Marker
             coordinate={position}
             image={require("../assets/carMarker.png")}
-            onPress={popupHandler}
           />
         </MapView>
         <View style={styles.topBar}>
@@ -84,19 +79,7 @@ export default function Dashboard() {
                 </TouchableOpacity>
               </View>
               <View>
-                {/* ------------------------------------------------ */}
                 <View style={styles.fieldCardWrapper}>
-                  <View style={styles.fieldCard}>
-                    <Text>283 KW/pa</Text>
-                    <Image
-                      source={require("../assets/SideView.png")}
-                      resizeMode="contain"
-                      style={{
-                        width: "90%",
-                        marginLeft: 15,
-                      }}
-                    />
-                  </View>
                   {/* ------------------------------------------------ */}
                   <View style={styles.fieldCard}>
                     <Text>283 KW/pa</Text>
@@ -121,8 +104,20 @@ export default function Dashboard() {
                       }}
                     />
                   </View>
+                  {/* ------------------------------------------------ */}
+                  <View style={styles.fieldCard}>
+                    <Text>283 KW/pa</Text>
+                    <Image
+                      source={require("../assets/SideView.png")}
+                      resizeMode="contain"
+                      style={{
+                        width: "90%",
+                        marginLeft: 15,
+                      }}
+                    />
+                  </View>
+                  {/* ------------------------------------------------ */}
                 </View>
-                {/* ------------------------------------------------ */}
               </View>
             </View>
           </BottomSheetScrollView>
