@@ -70,12 +70,12 @@ export default function Dashboard() {
                   <Text style={styles.fieldText}>Automatic</Text>
                 </TouchableOpacity>
                 {/* --------------------------------------- */}
-                <TouchableOpacity style={styles.bottomScrollbarField}>
-                  <Text style={styles.fieldText}>Electric</Text>
+                <TouchableOpacity style={styles.bottomScrollbarField_2}>
+                  <Text style={styles.fieldText_2}>Electric</Text>
                 </TouchableOpacity>
                 {/* --------------------------------------- */}
-                <TouchableOpacity style={styles.bottomScrollbarField}>
-                  <Text style={styles.fieldText}>Manual</Text>
+                <TouchableOpacity style={styles.bottomScrollbarField_2}>
+                  <Text style={styles.fieldText_2}>Manual</Text>
                 </TouchableOpacity>
               </View>
               <View>
@@ -92,7 +92,7 @@ export default function Dashboard() {
                         bottom: 25,
                       }}
                     />
-                    <Text style={styles.fieldCarName}>BMW 740le</Text>
+                    <Text style={styles.fieldCarName}>BMW 740Le</Text>
                   </View>
                   {/* ------------------------------------------------ */}
                   <View style={styles.fieldCard}>
@@ -106,19 +106,21 @@ export default function Dashboard() {
                         bottom: 25,
                       }}
                     />
-                    <Text style={styles.fieldCarName}>BMW 740le</Text>
+                    <Text style={styles.fieldCarName}>Mercedes-Benz S500</Text>
                   </View>
                   {/* ------------------------------------------------ */}
                   <View style={styles.fieldCard}>
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
-                      source={require("../assets/SideView.png")}
+                      source={require("../assets/SideView3.png")}
                       resizeMode="contain"
                       style={{
                         width: "90%",
                         marginLeft: 15,
+                        bottom: 25,
                       }}
                     />
+                    <Text style={styles.fieldCarName}>Tesla Model S</Text>
                   </View>
                   {/* ------------------------------------------------ */}
                   <View style={styles.bottomFooter}></View>
@@ -174,8 +176,27 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
   },
+  bottomScrollbarField_2: {
+    backgroundColor: "#ffffff",
+    borderColor: "#cecece",
+    borderWidth: 2,
+    width: "auto",
+    height: 50,
+    borderRadius: 50,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingRight: 30,
+    paddingLeft: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
   fieldText: {
     color: "#ffffff",
+    // fontWeight: "bold",
+  },
+  fieldText_2: {
+    color: "#000000",
     // fontWeight: "bold",
   },
   fieldCardWrapper: {
