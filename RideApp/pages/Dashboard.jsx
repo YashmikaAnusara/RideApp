@@ -10,11 +10,7 @@ import {
 import MapView, { Marker, AnimatedRegion } from "react-native-maps";
 import mapColor from "../utilities/mapColor";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import {
-  BottomSheetScrollView,
-  BottomSheetModalProvider,
-  BottomSheetModal,
-} from "@gorhom/bottom-sheet";
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import TopBar from "../component/topBar";
 import * as Location from "expo-location";
 
@@ -48,29 +44,29 @@ export default function Dashboard() {
 
   return (
     <GestureHandlerRootView>
-      <BottomSheetModalProvider>
-        <View style={styles.bodyContainer}>
-          <MapView
-            style={styles.MapView}
-            initialRegion={position}
-            customMapStyle={mapColor}
-            showsTraffic={true}
-            zoomEnabled={true}
-          >
-            <Marker
-              coordinate={position}
-              image={require("../assets/carMarker.png")}
-              onPress={popupHandler}
-            />
-          </MapView>
-          <View style={styles.topBar}>
-            <TopBar />
-          </View>
-          <BottomSheetModal
-            ref={bottomSheetModalRef}
-            index={0}
-            snapPoints={["55%", "90%"]}
-          >
+      <View style={styles.bodyContainer}>
+        <MapView
+          style={styles.MapView}
+          initialRegion={position}
+          customMapStyle={mapColor}
+          showsTraffic={true}
+          zoomEnabled={true}
+        >
+          <Marker
+            coordinate={position}
+            image={require("../assets/carMarker.png")}
+            onPress={popupHandler}
+          />
+        </MapView>
+        <View style={styles.topBar}>
+          <TopBar />
+        </View>
+        <BottomSheet
+          ref={bottomSheetModalRef}
+          index={0}
+          snapPoints={["55%", "90%"]}
+        >
+          <BottomSheetScrollView>
             <View style={styles.bottomSheetWrapper}>
               <Text style={styles.bottomSheetTopic}>Select a car</Text>
               <View style={styles.bottomNavBar}>
@@ -88,22 +84,50 @@ export default function Dashboard() {
                 </TouchableOpacity>
               </View>
               <View>
-                <View style={styles.fieldCard}>
-                  <Text>283 KW/pa</Text>
-                  <Image
-                    source={require("../assets/SideView.png")}
-                    resizeMode="contain"
-                    style={{
-                      width: "90%",
-                      marginLeft: 15,
-                    }}
-                  />
+                {/* ------------------------------------------------ */}
+                <View style={styles.fieldCardWrapper}>
+                  <View style={styles.fieldCard}>
+                    <Text>283 KW/pa</Text>
+                    <Image
+                      source={require("../assets/SideView.png")}
+                      resizeMode="contain"
+                      style={{
+                        width: "90%",
+                        marginLeft: 15,
+                      }}
+                    />
+                  </View>
+                  {/* ------------------------------------------------ */}
+                  <View style={styles.fieldCard}>
+                    <Text>283 KW/pa</Text>
+                    <Image
+                      source={require("../assets/SideView.png")}
+                      resizeMode="contain"
+                      style={{
+                        width: "90%",
+                        marginLeft: 15,
+                      }}
+                    />
+                  </View>
+                  {/* ------------------------------------------------ */}
+                  <View style={styles.fieldCard}>
+                    <Text>283 KW/pa</Text>
+                    <Image
+                      source={require("../assets/SideView.png")}
+                      resizeMode="contain"
+                      style={{
+                        width: "90%",
+                        marginLeft: 15,
+                      }}
+                    />
+                  </View>
                 </View>
+                {/* ------------------------------------------------ */}
               </View>
             </View>
-          </BottomSheetModal>
-        </View>
-      </BottomSheetModalProvider>
+          </BottomSheetScrollView>
+        </BottomSheet>
+      </View>
     </GestureHandlerRootView>
   );
 }
@@ -153,6 +177,11 @@ const styles = StyleSheet.create({
   fieldText: {
     color: "#ffffff",
     // fontWeight: "bold",
+  },
+  fieldCardWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 10,
   },
   fieldCard: {
     width: "92%",
