@@ -5,13 +5,15 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import MapView, { Marker, AnimatedRegion } from "react-native-maps";
 import mapColor from "../utilities/mapColor";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import {
-  BottomSheetModal,
+  BottomSheetScrollView,
   BottomSheetModalProvider,
+  BottomSheetModal,
 } from "@gorhom/bottom-sheet";
 import TopBar from "../component/topBar";
 import * as Location from "expo-location";
@@ -19,8 +21,8 @@ import * as Location from "expo-location";
 export default function Dashboard() {
   const bottomSheetModalRef = useRef(null);
   const [position, setPosition] = useState({
-    latitude: 8.7591803,
-    longitude: 80.5193594,
+    latitude: 7.0457505,
+    longitude: 79.9134133,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
@@ -85,8 +87,18 @@ export default function Dashboard() {
                   <Text style={styles.fieldText}>Manual</Text>
                 </TouchableOpacity>
               </View>
-              <View style={styles.fieldCard}>
-                <Text>dsfdfd</Text>
+              <View>
+                <View style={styles.fieldCard}>
+                  <Text>283 KW/pa</Text>
+                  <Image
+                    source={require("../assets/SideView.png")}
+                    resizeMode="contain"
+                    style={{
+                      width: "90%",
+                      marginLeft: 15,
+                    }}
+                  />
+                </View>
               </View>
             </View>
           </BottomSheetModal>
@@ -111,8 +123,9 @@ const styles = StyleSheet.create({
     top: 40,
   },
   bottomSheetWrapper: {
-    width: "100%",
-    left: 10,
+    width: "98%",
+    left: "2%",
+    // backgroundColor: "red",
   },
   bottomSheetTopic: {
     fontWeight: "bold",
@@ -121,8 +134,6 @@ const styles = StyleSheet.create({
   bottomNavBar: {
     display: "flex",
     flexDirection: "row",
-    backgroundColor: "red",
-    width: "100%",
     top: 20,
     gap: 5,
   },
@@ -144,10 +155,14 @@ const styles = StyleSheet.create({
     // fontWeight: "bold",
   },
   fieldCard: {
+    width: "92%",
     display: "flex",
     flexDirection: "column",
-    width: "100%",
     top: 40,
-    backgroundColor: "red",
+    backgroundColor: "#f3f3f3",
+    // backgroundColor: "red",
+    left: "3%",
+    height: 250,
+    borderRadius: 20,
   },
 });
