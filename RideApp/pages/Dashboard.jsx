@@ -82,15 +82,17 @@ export default function Dashboard() {
                 <View style={styles.fieldCardWrapper}>
                   {/* ------------------------------------------------ */}
                   <View style={styles.fieldCard}>
-                    <Text>283 KW/pa</Text>
+                    <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
                       source={require("../assets/SideView.png")}
                       resizeMode="contain"
                       style={{
                         width: "90%",
                         marginLeft: 15,
+                        bottom: 25,
                       }}
                     />
+                    <Text>283 KW/pa</Text>
                   </View>
                   {/* ------------------------------------------------ */}
                   <View style={styles.fieldCard}>
@@ -186,7 +188,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#f3f3f3",
     // backgroundColor: "red",
     left: "3%",
-    height: 250,
+    height: 200,
     borderRadius: 20,
+  },
+  fieldTopic: {
+    paddingTop: 25,
+    paddingLeft: 15,
+    fontWeight: "bold",
+    fontSize: 20,
   },
 });
