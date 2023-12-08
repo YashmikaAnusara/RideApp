@@ -98,13 +98,15 @@ export default function Dashboard() {
                   <View style={styles.fieldCard}>
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
-                      source={require("../assets/SideView.png")}
+                      source={require("../assets/SideView2.png")}
                       resizeMode="contain"
                       style={{
                         width: "90%",
                         marginLeft: 15,
+                        bottom: 25,
                       }}
                     />
+                    <Text style={styles.fieldCarName}>BMW 740le</Text>
                   </View>
                   {/* ------------------------------------------------ */}
                   <View style={styles.fieldCard}>
@@ -119,7 +121,7 @@ export default function Dashboard() {
                     />
                   </View>
                   {/* ------------------------------------------------ */}
-                  <View></View>
+                  <View style={styles.bottomFooter}></View>
                 </View>
               </View>
             </View>
@@ -203,5 +205,8 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     fontWeight: "bold",
     color: "#bcbcbc",
+  },
+  bottomFooter: {
+    height: 130,
   },
 });
