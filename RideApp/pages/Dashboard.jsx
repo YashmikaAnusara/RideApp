@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import MapView, { Marker, AnimatedRegion } from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import mapColor from "../utilities/mapColor";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
