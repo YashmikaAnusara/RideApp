@@ -69,7 +69,7 @@ export default function Dashboard() {
             index={0}
             snapPoints={["55%", "90%"]}
           >
-            <View>
+            <View style={styles.bottomSheetWrapper}>
               <Text style={styles.bottomSheetTopic}>Select a car</Text>
               <View style={styles.bottomNavBar}>
                 {/* --------------------------------------- */}
@@ -84,6 +84,9 @@ export default function Dashboard() {
                 <TouchableOpacity style={styles.bottomScrollbarField}>
                   <Text style={styles.fieldText}>Manual</Text>
                 </TouchableOpacity>
+              </View>
+              <View style={styles.fieldCard}>
+                <Text>dsfdfd</Text>
               </View>
             </View>
           </BottomSheetModal>
@@ -107,18 +110,20 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 40,
   },
-  bottomSheetTopic: {
+  bottomSheetWrapper: {
+    width: "100%",
     left: 10,
+  },
+  bottomSheetTopic: {
     fontWeight: "bold",
     fontSize: 20,
   },
   bottomNavBar: {
     display: "flex",
     flexDirection: "row",
-    // backgroundColor: "red",
+    backgroundColor: "red",
     width: "100%",
     top: 20,
-    left: 10,
     gap: 5,
   },
   bottomScrollbarField: {
@@ -133,10 +138,16 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
     paddingTop: 10,
     paddingBottom: 10,
- 
   },
   fieldText: {
     color: "#ffffff",
     // fontWeight: "bold",
+  },
+  fieldCard: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    top: 40,
+    backgroundColor: "red",
   },
 });
