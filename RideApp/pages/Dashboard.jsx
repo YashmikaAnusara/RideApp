@@ -92,7 +92,7 @@ export default function Dashboard() {
                         bottom: 25,
                       }}
                     />
-                    <Text>283 KW/pa</Text>
+                    <Text style={styles.fieldCarName}>BMW 740le</Text>
                   </View>
                   {/* ------------------------------------------------ */}
                   <View style={styles.fieldCard}>
@@ -119,6 +119,7 @@ export default function Dashboard() {
                     />
                   </View>
                   {/* ------------------------------------------------ */}
+                  <View></View>
                 </View>
               </View>
             </View>
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f3f3f3",
     // backgroundColor: "red",
     left: "3%",
-    height: 210,
+    height: 220,
     borderRadius: 20,
   },
   fieldTopic: {
@@ -196,5 +197,11 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     fontWeight: "bold",
     fontSize: 20,
+  },
+  fieldCarName: {
+    bottom: 50,
+    paddingLeft: 15,
+    fontWeight: "bold",
+    color: "#bcbcbc",
   },
 });
