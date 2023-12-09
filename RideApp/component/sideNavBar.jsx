@@ -17,7 +17,7 @@ export default function SideNavBar() {
         headerShown: false,
       }}
     >
-      <Drawer.Screen name="Dashboard" component={NavBar} />
+      <Drawer.Screen name="Home" component={NavBar} />
       <Drawer.Screen name="Test1" component={Test1} />
     </Drawer.Navigator>
   );
