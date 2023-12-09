@@ -26,6 +26,7 @@ export default function NavBar() {
           ...styles.navBarShadow,
         },
       }}
+      initialRouteName="Dashboard"
     >
       <Tab.Screen
         name="Search"
