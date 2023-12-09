@@ -5,7 +5,17 @@ export default function TopBar() {
   return (
     <View style={styles.topBraContainer}>
       <View style={styles.topBraCard}>
-        <Text>Test</Text>
+        <TouchableOpacity style={styles.topBraCard}>
+          <Image
+            source={require("../assets/menu.png")}
+            resizeMode="contain"
+            style={{
+              width: 25,
+              height: 25,
+              tintColor: "#222222",
+            }}
+          />
+        </TouchableOpacity>
       </View>
       <TouchableOpacity style={styles.topBraCard}>
         <Image
