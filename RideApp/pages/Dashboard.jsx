@@ -13,7 +13,6 @@ import * as Location from "expo-location";
 
 export default function Dashboard() {
   const bottomSheetModalRef = useRef(null);
-  const bottomSheetModalRef2 = useRef(null);
   const [position, setPosition] = useState({
     latitude: 7.0457505,
     longitude: 79.9134133,
