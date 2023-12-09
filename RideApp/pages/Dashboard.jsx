@@ -13,12 +13,14 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import BottomSheet, {
   BottomSheetScrollView,
   BottomSheetBackdrop,
+  BottomSheetModal,
 } from "@gorhom/bottom-sheet";
 import TopBar from "../component/topBar";
 import * as Location from "expo-location";
 
 export default function Dashboard() {
   const bottomSheetModalRef = useRef(null);
+  const bottomSheetModalRef2 = useRef(null);
   const [position, setPosition] = useState({
     latitude: 7.0457505,
     longitude: 79.9134133,
@@ -41,7 +43,7 @@ export default function Dashboard() {
     })();
   }, [position]);
 
-  const renderBackdrop = useCallback(
+  const renderBackdropCars = useCallback(
     (props) => (
       <BottomSheetBackdrop
         {...props}
@@ -51,7 +53,19 @@ export default function Dashboard() {
     ),
     []
   );
-
+  const renderBackdropCarDetails = useCallback(
+    (props) => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={-1}
+        appearsOnIndex={1}
+      />
+    ),
+    []
+  );
+  const handlePresentModalPress = () => {
+    bottomSheetModalRef.current?.present();
+  };
   return (
     <GestureHandlerRootView>
       <View style={styles.bodyContainer}>
@@ -74,7 +88,7 @@ export default function Dashboard() {
           ref={bottomSheetModalRef}
           index={0}
           snapPoints={["55%", "90%"]}
-          backdropComponent={renderBackdrop}
+          backdropComponent={renderBackdropCars}
         >
           <BottomSheetScrollView>
             <View style={styles.bottomSheetWrapper}>
@@ -96,7 +110,10 @@ export default function Dashboard() {
               <View>
                 <View style={styles.fieldCardWrapper}>
                   {/* ------------------------------------------------ */}
-                  <TouchableOpacity style={styles.fieldCard}>
+                  <TouchableOpacity
+                    style={styles.fieldCard}
+                    onPress={handlePresentModalPress}
+                  >
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
                       source={require("../assets/SideView.png")}
@@ -110,7 +127,10 @@ export default function Dashboard() {
                     <Text style={styles.fieldCarName}>BMW 740Le</Text>
                   </TouchableOpacity>
                   {/* ------------------------------------------------ */}
-                  <TouchableOpacity style={styles.fieldCard}>
+                  <TouchableOpacity
+                    style={styles.fieldCard}
+                    onPress={handlePresentModalPress}
+                  >
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
                       source={require("../assets/SideView2.png")}
@@ -144,6 +164,16 @@ export default function Dashboard() {
             </View>
           </BottomSheetScrollView>
         </BottomSheet>
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          index={0}
+          snapPoints={["90%"]}
+          backdropComponent={renderBackdropCarDetails}
+        >
+          <View>
+            <Text>Awesome 🎉</Text>
+          </View>
+        </BottomSheetModal>
       </View>
     </GestureHandlerRootView>
   );
