@@ -10,7 +10,7 @@ export default function SideNavBar() {
   return (
     <Drawer.Navigator screenOptions={{ headerShown: false }}>
       <Drawer.Screen name="Dashboard" component={NavBar} />
-      <Drawer.Screen name="Test1123" component={Test1} />
+      <Drawer.Screen name="Test1" component={Test1} />
     </Drawer.Navigator>
   );
 }
