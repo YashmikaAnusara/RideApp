@@ -1,7 +1,6 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import NavBar from "../component/navBar";
 import SideNavBar from "../component/sideNavBar";
 
 const Stack = createNativeStackNavigator();
