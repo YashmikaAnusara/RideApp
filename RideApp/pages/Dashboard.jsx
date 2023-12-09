@@ -81,7 +81,7 @@ export default function Dashboard() {
               <View>
                 <View style={styles.fieldCardWrapper}>
                   {/* ------------------------------------------------ */}
-                  <View style={styles.fieldCard}>
+                  <TouchableOpacity style={styles.fieldCard}>
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
                       source={require("../assets/SideView.png")}
@@ -93,9 +93,9 @@ export default function Dashboard() {
                       }}
                     />
                     <Text style={styles.fieldCarName}>BMW 740Le</Text>
-                  </View>
+                  </TouchableOpacity>
                   {/* ------------------------------------------------ */}
-                  <View style={styles.fieldCard}>
+                  <TouchableOpacity style={styles.fieldCard}>
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
                       source={require("../assets/SideView2.png")}
@@ -107,9 +107,9 @@ export default function Dashboard() {
                       }}
                     />
                     <Text style={styles.fieldCarName}>Mercedes-Benz S500</Text>
-                  </View>
+                  </TouchableOpacity>
                   {/* ------------------------------------------------ */}
-                  <View style={styles.fieldCard}>
+                  <TouchableOpacity style={styles.fieldCard}>
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
                       source={require("../assets/SideView3.png")}
@@ -121,7 +121,7 @@ export default function Dashboard() {
                       }}
                     />
                     <Text style={styles.fieldCarName}>Tesla Model S</Text>
-                  </View>
+                  </TouchableOpacity>
                   {/* ------------------------------------------------ */}
                   <View style={styles.bottomFooter}></View>
                 </View>
