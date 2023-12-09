@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
-export default function TopBar() {
+export default function TopBar({ location }) {
   const nav = useNavigation();
   return (
     <View style={styles.topBraContainer}>
@@ -22,7 +22,17 @@ export default function TopBar() {
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.topBraCard}>
+      <TouchableOpacity
+        style={{
+          display: (location = true ? "flex" : null),
+          justifyContent: "center",
+          alignItems: "center",
+          height: 55,
+          width: 55,
+          backgroundColor: "#ffffff",
+          borderRadius: 100,
+        }}
+      >
         <Image
           source={require("../assets/gps.png")}
           resizeMode="contain"

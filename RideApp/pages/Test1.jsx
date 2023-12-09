@@ -6,7 +6,7 @@ export default function Test1() {
   return (
     <View style={styles.bodyContainer}>
       <View style={styles.topBar}>
-        <TopBar />
+        <TopBar location={false} />
       </View>
     </View>
   );
