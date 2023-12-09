@@ -1,11 +1,16 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export default function TopBar() {
+  const nav = useNavigation();
   return (
     <View style={styles.topBraContainer}>
       <View style={styles.topBraCard}>
-        <TouchableOpacity style={styles.topBraCard}>
+        <TouchableOpacity
+          style={styles.topBraCard}
+          onPress={() => nav.openDrawer()}
+        >
           <Image
             source={require("../assets/menu.png")}
             resizeMode="contain"
