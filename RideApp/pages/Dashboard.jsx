@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import mapColor from "../utilities/mapColor";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
