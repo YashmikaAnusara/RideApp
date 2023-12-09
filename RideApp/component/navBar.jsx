@@ -26,7 +26,7 @@ export default function NavBar() {
           ...styles.navBarShadow,
         },
       }}
-      initialRouteName="Dashboard"
+      initialRouteName="BottomDashboard"
     >
       <Tab.Screen
         name="Search"
@@ -60,7 +60,7 @@ export default function NavBar() {
         }}
       />
       <Tab.Screen
-        name="Dashboard"
+        name="BottomDashboard"
         component={Dashboard}
         options={{
           headerShown: false,
