@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   StyleSheet,
   View,
@@ -10,7 +10,10 @@ import {
 import MapView, { Marker } from "react-native-maps";
 import mapColor from "../utilities/mapColor";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
+import BottomSheet, {
+  BottomSheetScrollView,
+  BottomSheetBackdrop,
+} from "@gorhom/bottom-sheet";
 import TopBar from "../component/topBar";
 import * as Location from "expo-location";
 
@@ -38,6 +41,17 @@ export default function Dashboard() {
     })();
   }, [position]);
 
+  const renderBackdrop = useCallback(
+    (props) => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={0}
+        appearsOnIndex={1}
+      />
+    ),
+    []
+  );
+
   return (
     <GestureHandlerRootView>
       <View style={styles.bodyContainer}>
@@ -60,6 +74,7 @@ export default function Dashboard() {
           ref={bottomSheetModalRef}
           index={0}
           snapPoints={["55%", "90%"]}
+          backdropComponent={renderBackdrop}
         >
           <BottomSheetScrollView>
             <View style={styles.bottomSheetWrapper}>

@@ -8,7 +8,15 @@ import NavBar from "./navBar";
 export default function SideNavBar() {
   const Drawer = createDrawerNavigator();
   return (
-    <Drawer.Navigator screenOptions={{ headerShown: false }}>
+    <Drawer.Navigator
+      screenOptions={{
+        drawerStyle: {
+          borderBottomRightRadius: 30,
+          borderTopRightRadius: 30,
+        },
+        headerShown: false,
+      }}
+    >
       <Drawer.Screen name="Dashboard" component={NavBar} />
       <Drawer.Screen name="Test1" component={Test1} />
     </Drawer.Navigator>
