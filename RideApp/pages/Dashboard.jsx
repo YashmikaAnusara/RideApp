@@ -172,6 +172,14 @@ export default function Dashboard() {
                 <Text style={styles.CarCommonTopic}>Exclusive</Text>
                 <Text style={styles.CarBrandTopic}>BMW</Text>
                 <Text style={styles.CarModelTopic}>740Le</Text>
+                <View style={styles.CarDetails}>
+                  <View style={styles.DetailsWrapper}>
+                    <Image
+                      source={require("../assets/FrontView.png")}
+                      resizeMode="contain"
+                    />
+                  </View>
+                </View>
               </View>
               <View style={styles.CarImageSide}>
                 <Image
@@ -179,19 +187,8 @@ export default function Dashboard() {
                   resizeMode="contain"
                   style={{
                     width: "190%",
-                    // marginLeft: 15,
-                    // bottom: "20%",
                   }}
                 />
-                {/* <Image
-                  source={require("../assets/BackView.png")}
-                  resizeMode="contain"
-                  style={{
-                    width: "150%",
-                    // marginLeft: 15,
-                    bottom: "70%",
-                  }}
-                /> */}
               </View>
             </View>
           </View>
@@ -315,6 +312,14 @@ const styles = StyleSheet.create({
     width: "50%",
     top: 10,
     // backgroundColor: "red",
+  },
+  CarDetails: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  DetailsWrapper: {
+    display: "flex",
+    flexDirection: "row",
   },
   CarImageSide: {
     width: "50%",
