@@ -60,7 +60,7 @@ export default function Dashboard() {
     bottomSheetModalRef.current?.present();
   };
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.bodyContainer}>
         <MapView
           style={styles.MapView}
@@ -165,33 +165,114 @@ export default function Dashboard() {
           snapPoints={["90%"]}
           backdropComponent={renderBackdropCarDetails}
         >
-          <View style={styles.CarDetailsWrapper}>
-            <CarDetailsTopBar />
-            <View style={styles.CarDetailsContainer}>
-              <View style={styles.CarDetailsSide}>
-                <Text style={styles.CarCommonTopic}>Exclusive</Text>
-                <Text style={styles.CarBrandTopic}>BMW</Text>
-                <Text style={styles.CarModelTopic}>740Le</Text>
-                <View style={styles.CarDetails}>
-                  <View style={styles.DetailsWrapper}>
-                    <Image
-                      source={require("../assets/FrontView.png")}
-                      resizeMode="contain"
-                    />
+          <BottomSheetScrollView>
+            <View style={styles.CarDetailsWrapper}>
+              <CarDetailsTopBar />
+              <View style={styles.CarDetailsContainer}>
+                <View style={styles.CarDetailsSide}>
+                  <Text style={styles.CarCommonTopic}>Exclusive</Text>
+                  <Text style={styles.CarBrandTopic}>BMW</Text>
+                  <Text style={styles.CarModelTopic}>740Le</Text>
+                  <View style={styles.CarDetails}>
+                    {/* ---------------------------------------- */}
+                    <View style={styles.DetailsWrapper}>
+                      <View style={styles.DetailsCard}>
+                        <Image
+                          source={require("../assets/oil.png")}
+                          resizeMode="contain"
+                          style={{
+                            width: 30,
+                          }}
+                        />
+                      </View>
+                      <View>
+                        <Text style={styles.DetailsCardMainText}>506 KM</Text>
+                        <Text style={styles.DetailsCardSubText}>Fuel</Text>
+                      </View>
+                    </View>
+                    {/* --------------------------------------------- */}
+                    <View style={styles.DetailsWrapper}>
+                      <View style={styles.DetailsCard}>
+                        <Image
+                          source={require("../assets/meter.png")}
+                          resizeMode="contain"
+                          style={{
+                            width: 30,
+                          }}
+                        />
+                      </View>
+                      <View>
+                        <Text style={styles.DetailsCardMainText}>250 KM/H</Text>
+                        <Text style={styles.DetailsCardSubText}>Top Speed</Text>
+                      </View>
+                    </View>
+                    {/* --------------------------------------------- */}
+                    <View style={styles.DetailsWrapper}>
+                      <View style={styles.DetailsCard}>
+                        <Image
+                          source={require("../assets/engine.png")}
+                          resizeMode="contain"
+                          style={{
+                            width: 30,
+                          }}
+                        />
+                      </View>
+                      <View>
+                        <Text style={styles.DetailsCardMainText}>2998 cc</Text>
+                        <Text style={styles.DetailsCardSubText}>
+                          Engine Capacity
+                        </Text>
+                      </View>
+                    </View>
+                    {/* --------------------------------------------- */}
+                    <View style={styles.DetailsWrapper}>
+                      <View style={styles.DetailsCard}>
+                        <Image
+                          source={require("../assets/engine.png")}
+                          resizeMode="contain"
+                          style={{
+                            width: 30,
+                          }}
+                        />
+                      </View>
+                      <View>
+                        <Text style={styles.DetailsCardMainText}>2998 cc</Text>
+                        <Text style={styles.DetailsCardSubText}>
+                          Engine Capacity
+                        </Text>
+                      </View>
+                    </View>
+                    {/* --------------------------------------------- */}
                   </View>
+                  <TouchableOpacity style={styles.DriverWrapper}>
+                    <View style={styles.Driver}>
+                      <Image
+                        source={require("../assets/driver.png")}
+                        resizeMode="contain"
+                        style={{
+                          width: 40,
+                          left: 10,
+                        }}
+                      />
+                    </View>
+                    <View style={styles.DriverName}>
+                      <Text style={styles.DriverNameName}>Thivanka Fox</Text>
+                      <Text style={styles.DriverNameText}>Car Driver</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.CarImageSide}>
+                  <Image
+                    source={require("../assets/FrontView.png")}
+                    resizeMode="contain"
+                    style={{
+                      width: "190%",
+                    }}
+                  />
                 </View>
               </View>
-              <View style={styles.CarImageSide}>
-                <Image
-                  source={require("../assets/FrontView.png")}
-                  resizeMode="contain"
-                  style={{
-                    width: "190%",
-                  }}
-                />
-              </View>
             </View>
-          </View>
+          </BottomSheetScrollView>
         </BottomSheetModal>
       </View>
     </GestureHandlerRootView>
@@ -296,7 +377,7 @@ const styles = StyleSheet.create({
   },
   CarDetailsWrapper: {
     width: "100%",
-    height: "100%",
+    height: 700,
     display: "flex",
     flexDirection: "column",
   },
@@ -306,7 +387,7 @@ const styles = StyleSheet.create({
     left: 10,
     // top: 30,
     width: "100%",
-    height: "78%",
+    // backgroundColor: "red",
   },
   CarDetailsSide: {
     width: "50%",
@@ -316,10 +397,63 @@ const styles = StyleSheet.create({
   CarDetails: {
     display: "flex",
     flexDirection: "column",
+    gap: 40,
   },
   DetailsWrapper: {
     display: "flex",
     flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    // backgroundColor: "red",
+  },
+  DetailsCard: {
+    width: 50,
+    height: 50,
+    backgroundColor: "#f1f1f1",
+    borderRadius: 50,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  DetailsCardMainText: {
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  DetailsCardSubText: {
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "#c6c6c6",
+  },
+  DriverWrapper: {
+    top: 40,
+    backgroundColor: "#f5f5f5",
+    width: "90%",
+    borderRadius: 50,
+    height: 50,
+    display: "flex",
+    flexDirection: "row",
+  },
+  Driver: {
+    display: "flex",
+    justifyContent: "center",
+    height: 50,
+    width: "32%",
+    // backgroundColor:"red"
+  },
+  DriverName: {
+    display: "flex",
+    justifyContent: "center",
+    height: 50,
+    width: "80%",
+    // backgroundColor:"red"
+  },
+  DriverNameName: {
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "#383838",
+  },
+  DriverNameText: {
+    color: "#a9a9a9",
   },
   CarImageSide: {
     width: "50%",
