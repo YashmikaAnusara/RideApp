@@ -10,6 +10,7 @@ import BottomSheet, {
 } from "@gorhom/bottom-sheet";
 import TopBar from "../component/topBar";
 import * as Location from "expo-location";
+import CarDetailsTopBar from "../component/CarDetailsTopBar";
 
 export default function Dashboard() {
   const bottomSheetModalRef = useRef(null);
@@ -77,7 +78,6 @@ export default function Dashboard() {
           <TopBar />
         </View>
         <BottomSheet
-          ref={bottomSheetModalRef}
           index={0}
           snapPoints={["55%", "90%"]}
           backdropComponent={renderBackdropCars}
@@ -136,7 +136,10 @@ export default function Dashboard() {
                     <Text style={styles.fieldCarName}>Mercedes-Benz S500</Text>
                   </TouchableOpacity>
                   {/* ------------------------------------------------ */}
-                  <TouchableOpacity style={styles.fieldCard}>
+                  <TouchableOpacity
+                    style={styles.fieldCard}
+                    onPress={handlePresentModalPress}
+                  >
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
                       source={require("../assets/SideView3.png")}
@@ -162,8 +165,24 @@ export default function Dashboard() {
           snapPoints={["90%"]}
           backdropComponent={renderBackdropCarDetails}
         >
-          <View>
-            <Text>Awesome 🎉</Text>
+          <View style={styles.CarDetailsWrapper}>
+            <CarDetailsTopBar />
+            <View style={styles.CarDetailsContainer}>
+              <View style={styles.CarDetailsSide}>
+                <Text>HOI</Text>
+              </View>
+              <View style={styles.CarImageSide}>
+                <Image
+                  source={require("../assets/FrontView.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: "190%",
+                    marginLeft: 15,
+                    bottom: 25,
+                  }}
+                />
+              </View>
+            </View>
           </View>
         </BottomSheetModal>
       </View>
@@ -266,5 +285,29 @@ const styles = StyleSheet.create({
   },
   bottomFooter: {
     height: 130,
+  },
+  CarDetailsWrapper: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+  CarDetailsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    left: 10,
+    // top: 30,
+    width: "100%",
+    height: "78%",
+  },
+  CarDetailsSide: {
+    width: "50%",
+    // backgroundColor: "red",
+  },
+  CarImageSide: {
+    width: "50%",
+    // backgroundColor: "red",
+    display: "flex",
+    justifyContent: "center",
   },
 });
