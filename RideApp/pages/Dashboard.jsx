@@ -169,7 +169,9 @@ export default function Dashboard() {
             <CarDetailsTopBar />
             <View style={styles.CarDetailsContainer}>
               <View style={styles.CarDetailsSide}>
-                <Text>HOI</Text>
+                <Text style={styles.CarCommonTopic}>Exclusive</Text>
+                <Text style={styles.CarBrandTopic}>BMW</Text>
+                <Text style={styles.CarModelTopic}>740Le</Text>
               </View>
               <View style={styles.CarImageSide}>
                 <Image
@@ -177,10 +179,19 @@ export default function Dashboard() {
                   resizeMode="contain"
                   style={{
                     width: "190%",
-                    marginLeft: 15,
-                    bottom: 25,
+                    // marginLeft: 15,
+                    // bottom: "20%",
                   }}
                 />
+                {/* <Image
+                  source={require("../assets/BackView.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: "150%",
+                    // marginLeft: 15,
+                    bottom: "70%",
+                  }}
+                /> */}
               </View>
             </View>
           </View>
@@ -302,6 +313,7 @@ const styles = StyleSheet.create({
   },
   CarDetailsSide: {
     width: "50%",
+    top: 10,
     // backgroundColor: "red",
   },
   CarImageSide: {
@@ -309,5 +321,22 @@ const styles = StyleSheet.create({
     // backgroundColor: "red",
     display: "flex",
     justifyContent: "center",
+    top: 10,
+    flexDirection: "column",
+  },
+  CarCommonTopic: {
+    color: "#a6a6a6",
+    fontSize: 20,
+  },
+  CarBrandTopic: {
+    color: "#282b30",
+    fontSize: 45,
+    fontWeight: "bold",
+  },
+  CarModelTopic: {
+    color: "#282b30",
+    fontSize: 45,
+    fontWeight: "bold",
+    bottom: 15,
   },
 });
