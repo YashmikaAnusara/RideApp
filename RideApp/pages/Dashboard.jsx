@@ -236,9 +236,11 @@ export default function Dashboard() {
                         />
                       </View>
                       <View>
-                        <Text style={styles.DetailsCardMainText}>2998 cc</Text>
+                        <Text style={styles.DetailsCardMainText}>
+                          CBE -3465
+                        </Text>
                         <Text style={styles.DetailsCardSubText}>
-                          Engine Capacity
+                          Vehicle Number
                         </Text>
                       </View>
                     </View>
