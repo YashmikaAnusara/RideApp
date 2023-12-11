@@ -228,7 +228,7 @@ export default function Dashboard() {
                     <View style={styles.DetailsWrapper}>
                       <View style={styles.DetailsCard}>
                         <Image
-                          source={require("../assets/engine.png")}
+                          source={require("../assets/plate.png")}
                           resizeMode="contain"
                           style={{
                             width: 30,
@@ -379,7 +379,7 @@ const styles = StyleSheet.create({
   },
   CarDetailsWrapper: {
     width: "100%",
-    height: 700,
+    height: 650,
     display: "flex",
     flexDirection: "column",
   },
