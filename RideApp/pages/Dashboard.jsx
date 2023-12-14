@@ -303,7 +303,7 @@ export default function Dashboard() {
                           />
                         </View>
                         <View>
-                          <Text style={styles.DetailsCardMainText}>506 KM</Text>
+                          <Text style={styles.DetailsCardMainText}>278 KM</Text>
                           <Text style={styles.DetailsCardSubText}>Fuel</Text>
                         </View>
                       </View>
@@ -360,7 +360,7 @@ export default function Dashboard() {
                         </View>
                         <View>
                           <Text style={styles.DetailsCardMainText}>
-                            CBE -3465
+                            CBL -9375
                           </Text>
                           <Text style={styles.DetailsCardSubText}>
                             Vehicle Number
@@ -472,7 +472,7 @@ export default function Dashboard() {
                         </View>
                         <View>
                           <Text style={styles.DetailsCardMainText}>
-                            CBE -3465
+                            CAX -4313
                           </Text>
                           <Text style={styles.DetailsCardSubText}>
                             Vehicle Number
