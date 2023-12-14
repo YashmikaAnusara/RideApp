@@ -283,12 +283,13 @@ export default function Dashboard() {
                     />
                   </View>
                 </View>
-              ) : carBrand == "BMW" ? (
+              ) : carBrand == "Benz" ? (
                 <View style={styles.CarDetailsContainer}>
                   <View style={styles.CarDetailsSide}>
                     <Text style={styles.CarCommonTopic}>Exclusive</Text>
-                    <Text style={styles.CarBrandTopic}>BMW</Text>
-                    <Text style={styles.CarModelTopic}>740Le</Text>
+                    <Text style={styles.CarBrandTopic}>Mercedes Benz</Text>
+
+                    <Text style={styles.CarModelTopic}>S500</Text>
                     <View style={styles.CarDetails}>
                       {/* ---------------------------------------- */}
                       <View style={styles.DetailsWrapper}>
@@ -387,7 +388,7 @@ export default function Dashboard() {
                   </View>
                   <View style={styles.CarImageSide}>
                     <Image
-                      source={require("../assets/FrontView.png")}
+                      source={require("../assets/FrontView2.png")}
                       resizeMode="contain"
                       style={{
                         width: "190%",
@@ -395,12 +396,12 @@ export default function Dashboard() {
                     />
                   </View>
                 </View>
-              ) : carBrand == "BMW" ? (
+              ) : carBrand == "Tesla" ? (
                 <View style={styles.CarDetailsContainer}>
                   <View style={styles.CarDetailsSide}>
                     <Text style={styles.CarCommonTopic}>Exclusive</Text>
-                    <Text style={styles.CarBrandTopic}>BMW</Text>
-                    <Text style={styles.CarModelTopic}>740Le</Text>
+                    <Text style={styles.CarBrandTopic}>Tesla </Text>
+                    <Text style={styles.CarModelTopic}>Model S</Text>
                     <View style={styles.CarDetails}>
                       {/* ---------------------------------------- */}
                       <View style={styles.DetailsWrapper}>
@@ -499,7 +500,7 @@ export default function Dashboard() {
                   </View>
                   <View style={styles.CarImageSide}>
                     <Image
-                      source={require("../assets/FrontView.png")}
+                      source={require("../assets/FrontView3.png")}
                       resizeMode="contain"
                       style={{
                         width: "190%",
@@ -615,7 +616,7 @@ const styles = StyleSheet.create({
   },
   CarDetailsWrapper: {
     width: "100%",
-    height: 650,
+    height: 700,
     display: "flex",
     flexDirection: "column",
   },
@@ -707,12 +708,12 @@ const styles = StyleSheet.create({
   },
   CarBrandTopic: {
     color: "#282b30",
-    fontSize: 45,
+    fontSize: 44,
     fontWeight: "bold",
   },
   CarModelTopic: {
     color: "#282b30",
-    fontSize: 45,
+    fontSize: 44,
     fontWeight: "bold",
     bottom: 15,
   },
