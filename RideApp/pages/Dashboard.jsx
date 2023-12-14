@@ -432,7 +432,7 @@ export default function Dashboard() {
                         </View>
                         <View>
                           <Text style={styles.DetailsCardMainText}>
-                            250 KM/H
+                            155 KM/H
                           </Text>
                           <Text style={styles.DetailsCardSubText}>
                             Top Speed
@@ -452,7 +452,7 @@ export default function Dashboard() {
                         </View>
                         <View>
                           <Text style={styles.DetailsCardMainText}>
-                            2998 cc
+                            None
                           </Text>
                           <Text style={styles.DetailsCardSubText}>
                             Engine Capacity
