@@ -61,6 +61,7 @@ export default function Dashboard() {
     bottomSheetModalRef.current?.present();
     setCarBrand(brand);
   };
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.bodyContainer}>
@@ -451,9 +452,7 @@ export default function Dashboard() {
                           />
                         </View>
                         <View>
-                          <Text style={styles.DetailsCardMainText}>
-                            None
-                          </Text>
+                          <Text style={styles.DetailsCardMainText}>None</Text>
                           <Text style={styles.DetailsCardSubText}>
                             Engine Capacity
                           </Text>
