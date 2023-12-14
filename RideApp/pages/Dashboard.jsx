@@ -20,6 +20,7 @@ export default function Dashboard() {
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
+  const [carBrand, setCarBrand] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -56,8 +57,9 @@ export default function Dashboard() {
     ),
     []
   );
-  const handlePresentModalPress = () => {
+  const handlePresentModalPress = (brand) => {
     bottomSheetModalRef.current?.present();
+    setCarBrand(brand);
   };
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -104,7 +106,7 @@ export default function Dashboard() {
                   {/* ------------------------------------------------ */}
                   <TouchableOpacity
                     style={styles.fieldCard}
-                    onPress={handlePresentModalPress}
+                    onPress={() => handlePresentModalPress("BMW")}
                   >
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
@@ -121,7 +123,7 @@ export default function Dashboard() {
                   {/* ------------------------------------------------ */}
                   <TouchableOpacity
                     style={styles.fieldCard}
-                    onPress={handlePresentModalPress}
+                    onPress={() => handlePresentModalPress("Benz")}
                   >
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
@@ -138,7 +140,7 @@ export default function Dashboard() {
                   {/* ------------------------------------------------ */}
                   <TouchableOpacity
                     style={styles.fieldCard}
-                    onPress={handlePresentModalPress}
+                    onPress={() => handlePresentModalPress("Tesla")}
                   >
                     <Text style={styles.fieldTopic}>283 KW/pa</Text>
                     <Image
@@ -159,6 +161,7 @@ export default function Dashboard() {
             </View>
           </BottomSheetScrollView>
         </BottomSheet>
+        {/* ------------------------------------------------------ */}
         <BottomSheetModal
           ref={bottomSheetModalRef}
           index={0}
@@ -168,114 +171,347 @@ export default function Dashboard() {
           <BottomSheetScrollView>
             <View style={styles.CarDetailsWrapper}>
               <CarDetailsTopBar />
-              <View style={styles.CarDetailsContainer}>
-                <View style={styles.CarDetailsSide}>
-                  <Text style={styles.CarCommonTopic}>Exclusive</Text>
-                  <Text style={styles.CarBrandTopic}>BMW</Text>
-                  <Text style={styles.CarModelTopic}>740Le</Text>
-                  <View style={styles.CarDetails}>
-                    {/* ---------------------------------------- */}
-                    <View style={styles.DetailsWrapper}>
-                      <View style={styles.DetailsCard}>
+              {carBrand == "BMW" ? (
+                <View style={styles.CarDetailsContainer}>
+                  <View style={styles.CarDetailsSide}>
+                    <Text style={styles.CarCommonTopic}>Exclusive</Text>
+                    <Text style={styles.CarBrandTopic}>BMW</Text>
+                    <Text style={styles.CarModelTopic}>740Le</Text>
+                    <View style={styles.CarDetails}>
+                      {/* ---------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/oil.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>506 KM</Text>
+                          <Text style={styles.DetailsCardSubText}>Fuel</Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/meter.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            250 KM/H
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Top Speed
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/engine.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            2998 cc
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Engine Capacity
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/plate.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            CBE -3465
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Vehicle Number
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                    </View>
+                    <TouchableOpacity style={styles.DriverWrapper}>
+                      <View style={styles.Driver}>
                         <Image
-                          source={require("../assets/oil.png")}
+                          source={require("../assets/driver.png")}
                           resizeMode="contain"
                           style={{
-                            width: 30,
+                            width: 40,
+                            left: 10,
                           }}
                         />
                       </View>
-                      <View>
-                        <Text style={styles.DetailsCardMainText}>506 KM</Text>
-                        <Text style={styles.DetailsCardSubText}>Fuel</Text>
+                      <View style={styles.DriverName}>
+                        <Text style={styles.DriverNameName}>Thivanka Fox</Text>
+                        <Text style={styles.DriverNameText}>Car Driver</Text>
                       </View>
-                    </View>
-                    {/* --------------------------------------------- */}
-                    <View style={styles.DetailsWrapper}>
-                      <View style={styles.DetailsCard}>
-                        <Image
-                          source={require("../assets/meter.png")}
-                          resizeMode="contain"
-                          style={{
-                            width: 30,
-                          }}
-                        />
-                      </View>
-                      <View>
-                        <Text style={styles.DetailsCardMainText}>250 KM/H</Text>
-                        <Text style={styles.DetailsCardSubText}>Top Speed</Text>
-                      </View>
-                    </View>
-                    {/* --------------------------------------------- */}
-                    <View style={styles.DetailsWrapper}>
-                      <View style={styles.DetailsCard}>
-                        <Image
-                          source={require("../assets/engine.png")}
-                          resizeMode="contain"
-                          style={{
-                            width: 30,
-                          }}
-                        />
-                      </View>
-                      <View>
-                        <Text style={styles.DetailsCardMainText}>2998 cc</Text>
-                        <Text style={styles.DetailsCardSubText}>
-                          Engine Capacity
-                        </Text>
-                      </View>
-                    </View>
-                    {/* --------------------------------------------- */}
-                    <View style={styles.DetailsWrapper}>
-                      <View style={styles.DetailsCard}>
-                        <Image
-                          source={require("../assets/plate.png")}
-                          resizeMode="contain"
-                          style={{
-                            width: 30,
-                          }}
-                        />
-                      </View>
-                      <View>
-                        <Text style={styles.DetailsCardMainText}>
-                          CBE -3465
-                        </Text>
-                        <Text style={styles.DetailsCardSubText}>
-                          Vehicle Number
-                        </Text>
-                      </View>
-                    </View>
-                    {/* --------------------------------------------- */}
+                    </TouchableOpacity>
                   </View>
-                  <TouchableOpacity style={styles.DriverWrapper}>
-                    <View style={styles.Driver}>
-                      <Image
-                        source={require("../assets/driver.png")}
-                        resizeMode="contain"
-                        style={{
-                          width: 40,
-                          left: 10,
-                        }}
-                      />
-                    </View>
-                    <View style={styles.DriverName}>
-                      <Text style={styles.DriverNameName}>Thivanka Fox</Text>
-                      <Text style={styles.DriverNameText}>Car Driver</Text>
-                    </View>
-                  </TouchableOpacity>
+                  <View style={styles.CarImageSide}>
+                    <Image
+                      source={require("../assets/FrontView.png")}
+                      resizeMode="contain"
+                      style={{
+                        width: "190%",
+                      }}
+                    />
+                  </View>
                 </View>
-                <View style={styles.CarImageSide}>
-                  <Image
-                    source={require("../assets/FrontView.png")}
-                    resizeMode="contain"
-                    style={{
-                      width: "190%",
-                    }}
-                  />
+              ) : carBrand == "BMW" ? (
+                <View style={styles.CarDetailsContainer}>
+                  <View style={styles.CarDetailsSide}>
+                    <Text style={styles.CarCommonTopic}>Exclusive</Text>
+                    <Text style={styles.CarBrandTopic}>BMW</Text>
+                    <Text style={styles.CarModelTopic}>740Le</Text>
+                    <View style={styles.CarDetails}>
+                      {/* ---------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/oil.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>506 KM</Text>
+                          <Text style={styles.DetailsCardSubText}>Fuel</Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/meter.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            250 KM/H
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Top Speed
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/engine.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            2998 cc
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Engine Capacity
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/plate.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            CBE -3465
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Vehicle Number
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                    </View>
+                    <TouchableOpacity style={styles.DriverWrapper}>
+                      <View style={styles.Driver}>
+                        <Image
+                          source={require("../assets/driver.png")}
+                          resizeMode="contain"
+                          style={{
+                            width: 40,
+                            left: 10,
+                          }}
+                        />
+                      </View>
+                      <View style={styles.DriverName}>
+                        <Text style={styles.DriverNameName}>Thivanka Fox</Text>
+                        <Text style={styles.DriverNameText}>Car Driver</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                  <View style={styles.CarImageSide}>
+                    <Image
+                      source={require("../assets/FrontView.png")}
+                      resizeMode="contain"
+                      style={{
+                        width: "190%",
+                      }}
+                    />
+                  </View>
                 </View>
-              </View>
+              ) : carBrand == "BMW" ? (
+                <View style={styles.CarDetailsContainer}>
+                  <View style={styles.CarDetailsSide}>
+                    <Text style={styles.CarCommonTopic}>Exclusive</Text>
+                    <Text style={styles.CarBrandTopic}>BMW</Text>
+                    <Text style={styles.CarModelTopic}>740Le</Text>
+                    <View style={styles.CarDetails}>
+                      {/* ---------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/oil.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>506 KM</Text>
+                          <Text style={styles.DetailsCardSubText}>Fuel</Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/meter.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            250 KM/H
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Top Speed
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/engine.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            2998 cc
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Engine Capacity
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                      <View style={styles.DetailsWrapper}>
+                        <View style={styles.DetailsCard}>
+                          <Image
+                            source={require("../assets/plate.png")}
+                            resizeMode="contain"
+                            style={{
+                              width: 30,
+                            }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.DetailsCardMainText}>
+                            CBE -3465
+                          </Text>
+                          <Text style={styles.DetailsCardSubText}>
+                            Vehicle Number
+                          </Text>
+                        </View>
+                      </View>
+                      {/* --------------------------------------------- */}
+                    </View>
+                    <TouchableOpacity style={styles.DriverWrapper}>
+                      <View style={styles.Driver}>
+                        <Image
+                          source={require("../assets/driver.png")}
+                          resizeMode="contain"
+                          style={{
+                            width: 40,
+                            left: 10,
+                          }}
+                        />
+                      </View>
+                      <View style={styles.DriverName}>
+                        <Text style={styles.DriverNameName}>Thivanka Fox</Text>
+                        <Text style={styles.DriverNameText}>Car Driver</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                  <View style={styles.CarImageSide}>
+                    <Image
+                      source={require("../assets/FrontView.png")}
+                      resizeMode="contain"
+                      style={{
+                        width: "190%",
+                      }}
+                    />
+                  </View>
+                </View>
+              ) : null}
             </View>
           </BottomSheetScrollView>
         </BottomSheetModal>
+        {/* ------------------------------------------------------ */}
       </View>
     </GestureHandlerRootView>
   );
