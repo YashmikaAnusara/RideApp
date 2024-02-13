@@ -22,27 +22,29 @@ export default function TopBar({ location }) {
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={{
-          display: (location = true ? "flex" : null),
-          justifyContent: "center",
-          alignItems: "center",
-          height: 55,
-          width: 55,
-          backgroundColor: "#ffffff",
-          borderRadius: 100,
-        }}
-      >
-        <Image
-          source={require("../assets/gps.png")}
-          resizeMode="contain"
+      {location == true ? (
+        <TouchableOpacity
           style={{
-            width: 30,
-            height: 30,
-            tintColor: "#222222",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: 55,
+            width: 55,
+            backgroundColor: "#ffffff",
+            borderRadius: 100,
           }}
-        />
-      </TouchableOpacity>
+        >
+          <Image
+            source={require("../assets/gps.png")}
+            resizeMode="contain"
+            style={{
+              width: 30,
+              height: 30,
+              tintColor: "#222222",
+            }}
+          />
+        </TouchableOpacity>
+      ) : null}
     </View>
   );
 }

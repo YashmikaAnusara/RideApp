@@ -5,6 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import Test1 from "../pages/Test1";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import Animated from "react-native-reanimated";
 
 const Tab = createBottomTabNavigator();
 
@@ -62,6 +63,7 @@ export default function NavBar() {
               ),
             }}
           />
+
           <Tab.Screen
             name="BottomDashboard"
             component={Dashboard}

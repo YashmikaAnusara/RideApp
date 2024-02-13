@@ -11,6 +11,11 @@ import BottomSheet, {
 import TopBar from "../component/topBar";
 import * as Location from "expo-location";
 import CarDetailsTopBar from "../component/CarDetailsTopBar";
+import Animated, {
+  useSharedValue,
+  withDelay,
+  withTiming,
+} from "react-native-reanimated";
 
 export default function Dashboard() {
   const bottomSheetModalRef = useRef(null);
@@ -22,7 +27,26 @@ export default function Dashboard() {
   });
   const [carBrand, setCarBrand] = useState("");
 
+  const DURATION = 350;
+  const DELAY = 250;
+
+  const opacity1 = useSharedValue(0);
+  const opacity2 = useSharedValue(0);
+  const opacity3 = useSharedValue(0);
+
   useEffect(() => {
+    opacity1.value = withDelay(
+      0 * DELAY,
+      withTiming(1, { duration: DURATION })
+    );
+    opacity2.value = withDelay(
+      1 * DELAY,
+      withTiming(1, { duration: DURATION })
+    );
+    opacity3.value = withDelay(
+      2 * DELAY,
+      withTiming(1, { duration: DURATION })
+    );
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
@@ -78,7 +102,7 @@ export default function Dashboard() {
           />
         </MapView>
         <View style={styles.topBar}>
-          <TopBar />
+          <TopBar location={true} />
         </View>
         <BottomSheet
           index={0}
@@ -105,56 +129,64 @@ export default function Dashboard() {
               <View>
                 <View style={styles.fieldCardWrapper}>
                   {/* ------------------------------------------------ */}
-                  <TouchableOpacity
-                    style={styles.fieldCard}
-                    onPress={() => handlePresentModalPress("BMW")}
-                  >
-                    <Text style={styles.fieldTopic}>283 KW/pa</Text>
-                    <Image
-                      source={require("../assets/SideView.png")}
-                      resizeMode="contain"
-                      style={{
-                        width: "90%",
-                        marginLeft: 15,
-                        bottom: 25,
-                      }}
-                    />
-                    <Text style={styles.fieldCarName}>BMW 740Le</Text>
-                  </TouchableOpacity>
+                  <Animated.View style={{ opacity: opacity1 }}>
+                    <TouchableOpacity
+                      style={styles.fieldCard}
+                      onPress={() => handlePresentModalPress("BMW")}
+                    >
+                      <Text style={styles.fieldTopic}>283 KW/pa</Text>
+                      <Image
+                        source={require("../assets/SideView.png")}
+                        resizeMode="contain"
+                        style={{
+                          width: "90%",
+                          marginLeft: 15,
+                          bottom: 25,
+                        }}
+                      />
+                      <Text style={styles.fieldCarName}>BMW 740Le</Text>
+                    </TouchableOpacity>
+                  </Animated.View>
                   {/* ------------------------------------------------ */}
-                  <TouchableOpacity
-                    style={styles.fieldCard}
-                    onPress={() => handlePresentModalPress("Benz")}
-                  >
-                    <Text style={styles.fieldTopic}>283 KW/pa</Text>
-                    <Image
-                      source={require("../assets/SideView2.png")}
-                      resizeMode="contain"
-                      style={{
-                        width: "90%",
-                        marginLeft: 15,
-                        bottom: 25,
-                      }}
-                    />
-                    <Text style={styles.fieldCarName}>Mercedes-Benz S500</Text>
-                  </TouchableOpacity>
+                  <Animated.View style={{ opacity: opacity2 }}>
+                    <TouchableOpacity
+                      style={styles.fieldCard}
+                      onPress={() => handlePresentModalPress("Benz")}
+                    >
+                      <Text style={styles.fieldTopic}>283 KW/pa</Text>
+                      <Image
+                        source={require("../assets/SideView2.png")}
+                        resizeMode="contain"
+                        style={{
+                          width: "90%",
+                          marginLeft: 15,
+                          bottom: 25,
+                        }}
+                      />
+                      <Text style={styles.fieldCarName}>
+                        Mercedes-Benz S500
+                      </Text>
+                    </TouchableOpacity>
+                  </Animated.View>
                   {/* ------------------------------------------------ */}
-                  <TouchableOpacity
-                    style={styles.fieldCard}
-                    onPress={() => handlePresentModalPress("Tesla")}
-                  >
-                    <Text style={styles.fieldTopic}>283 KW/pa</Text>
-                    <Image
-                      source={require("../assets/SideView3.png")}
-                      resizeMode="contain"
-                      style={{
-                        width: "90%",
-                        marginLeft: 15,
-                        bottom: 25,
-                      }}
-                    />
-                    <Text style={styles.fieldCarName}>Tesla Model S</Text>
-                  </TouchableOpacity>
+                  <Animated.View style={{ opacity: opacity3 }}>
+                    <TouchableOpacity
+                      style={styles.fieldCard}
+                      onPress={() => handlePresentModalPress("Tesla")}
+                    >
+                      <Text style={styles.fieldTopic}>283 KW/pa</Text>
+                      <Image
+                        source={require("../assets/SideView3.png")}
+                        resizeMode="contain"
+                        style={{
+                          width: "90%",
+                          marginLeft: 15,
+                          bottom: 25,
+                        }}
+                      />
+                      <Text style={styles.fieldCarName}>Tesla Model S</Text>
+                    </TouchableOpacity>
+                  </Animated.View>
                   {/* ------------------------------------------------ */}
                   <View style={styles.bottomFooter}></View>
                 </View>
